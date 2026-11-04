@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #080d1a;
+    color: #f8fafc;
+}
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 15% 20%, #2563eb35, transparent 40%),
+        radial-gradient(ellipse at 85% 80%, #7c3aed25, transparent 40%),
+        #080d1a;
+}
+
+.auth-container::before,
+.auth-container::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.35;
+    animation: float 8s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.auth-container::before {
+    background: #2563eb;
+    top: -120px;
+    left: -100px;
+}
+
+.auth-container::after {
+    background: #9333ea;
+    bottom: -120px;
+    right: -100px;
+    animation-delay: 2s;
+}
+
+form {
+    width: 100%;
+    max-width: 420px;
+    padding: 45px 38px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+    background: rgba(17, 27, 48, 0.78);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+    animation: appear 0.7s ease;
+}
+
+form h2 {
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #ffffff, #93c5fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+form input {
+    width: 100%;
+    padding: 16px 18px;
+    background: rgba(8, 17, 34, 0.85);
+    border: 1px solid #293951;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+form input::placeholder {
+    color: #7889a3;
+}
+
+form input:focus {
+    border-color: #3b82f6;
+    background: #101e36;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.13);
+}
+
+form button,
+.dashboard button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2563eb, #6366f1);
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
+}
+
+form button:hover,
+.dashboard button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);
+    filter: brightness(1.12);
+}
+
+form button:active,
+.dashboard button:active {
+    transform: scale(0.98);
+}
+
+form p {
+    color: #94a3b8;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.7;
+}
+
+form a {
+    color: #60a5fa;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+form a:hover {
+    color: #a5cfff;
+}
+
+.dashboard {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at top left, #2563eb35, transparent 45%),
+        radial-gradient(ellipse at bottom right, #9333ea25, transparent 45%),
+        #080d1a;
+}
+
+.dashboard::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: #2563eb;
+    opacity: 0.15;
+    filter: blur(120px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.dashboard h1 {
+    position: relative;
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    background: linear-gradient(135deg, #fff, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dashboard h3 {
+    position: relative;
+    color: #94a3b8;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.dashboard button {
+    position: relative;
+    width: auto;
+    min-width: 160px;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #dc2626, #f43f5e);
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
+}
+
+.dashboard button:hover {
+    box-shadow: 0 12px 30px rgba(220, 38, 38, 0.35);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes float {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(60px, 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 18px;
+    }
+
+    form {
+        padding: 35px 24px;
+        border-radius: 20px;
+        gap: 17px;
+    }
+
+    form h2 {
+        font-size: 26px;
+    }
+
+    form input {
+        padding: 14px;
+    }
+
+    .dashboard h1 {
+        font-size: 30px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
